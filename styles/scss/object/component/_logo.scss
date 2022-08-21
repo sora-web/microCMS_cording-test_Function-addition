@@ -6,14 +6,19 @@
 @use "../../utility/font" as font;
 
 .c-logo {
-  a {
-    padding: 10px;
-    img {
-      width: calc(54px);
-
-      @include responsive.responsive(md) {
-        width: calc(80px);
-      }
+  width: 53px;
+  @include responsive.responsive(md) {
+    width: 80px;
+  }
+  .c-logo__svg {
+    path {
     }
   }
+}
+
+.text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

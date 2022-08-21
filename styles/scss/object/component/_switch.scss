@@ -1,0 +1,137 @@
+@use "../../utility/flex" as flex;
+@use "../../utility/responsive" as responsive;
+@use "../../utility/position" as position;
+@use "../../utility/align" as align;
+@use "../../utility/rem" as rem;
+@use "../../utility/font" as font;
+//色切り替え
+:root {
+  --color-button: #324171;
+  --color-background: #fff;
+  --color-primary: #232e52;
+  --color-bgc: #232e52;
+  --color-header__item: #fff;
+  --color-cat: #232e52;
+}
+
+[data-theme="dark"] {
+  --color-button: #32ed6a;
+  --color-background: #22212b;
+  --color-primary: #fff;
+  --color-bgc: #ebf2fe;
+  --color-header__item: #232e52;
+  --color-cat: #232e52;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+a {
+  color: var(--color-primary);
+}
+
+.p-header,
+.p-heading {
+  background-color: var(--color-bgc);
+}
+
+.c-blog-item__cat {
+  color: var(--color-cat);
+}
+
+.p-header__item {
+  a {
+    color: var(--color-header__item);
+  }
+}
+
+.c-logo__svg {
+  path {
+    fill: var(--color-header__item);
+  }
+}
+
+.p-heading__cat,
+.p-heading__date {
+  border: 1px solid;
+  border-color: var(--color-background);
+}
+.p-heading__title {
+  color: var(--color-background);
+}
+
+//switch
+.p-switch {
+  &__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
+    @include responsive.responsive(lg) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.c-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  @include responsive.responsive(lg) {
+    width: 51px;
+    height: 30px;
+  }
+
+  &__wrapper {
+    display: inline-block;
+  }
+
+  &__button {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: #ccc;
+    transition: 0.4s;
+    @include responsive.responsive(lg) {
+      border-radius: 15px;
+    }
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background-color: #fff;
+      transition: 0.4s;
+      @include responsive.responsive(lg) {
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+}
+
+input:checked + .c-switch__button {
+  background-color: #33f321;
+  &:before {
+    transform: translate(80%, -50%);
+    @include responsive.responsive(lg) {
+      transform: translate(65%, -50%);
+    }
+  }
+}
+
+input:focus + .c-switch__button {
+  box-shadow: 0 0 1px #33f321;
+}

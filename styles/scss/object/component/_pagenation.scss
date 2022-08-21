@@ -8,7 +8,7 @@
 .c-pagenation-list {
   display: flex;
   margin-right: -10px;
-  @include responsive.responsive(md) {
+  @include responsive.responsive(sm) {
     margin-right: -20px;
   }
   .c-pagenation-item {
@@ -23,7 +23,7 @@
       font-size: rem.rem(10px);
       letter-spacing: 0em;
       line-height: 1;
-      @include responsive.responsive(md) {
+      @include responsive.responsive(sm) {
         padding: 15px 20px;
         margin-right: 20px;
         font-size: rem.rem(12px);

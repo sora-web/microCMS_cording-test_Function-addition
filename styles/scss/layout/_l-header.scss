@@ -5,11 +5,11 @@
 .l-header {
   // position: fixed;
   // z-index: 5;
-  padding-top: 20px;
+  padding-top: 10px;
 
   width: 100%;
   @include responsive.responsive(md) {
-    padding-top: 30px;
+    padding-top: 20px;
   }
   // backdrop-filter: blur(3px);
   &__inner {

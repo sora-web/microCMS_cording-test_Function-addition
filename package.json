@@ -6,19 +6,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext .js, .ts, .tsx"
   },
   "dependencies": {
+    "@theme-ui/presets": "^0.14.7",
+    "@types/theme-ui": "^0.6.0",
+    "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.5",
     "microcms-js-sdk": "^2.2.1",
     "next": "12.2.5",
+    "next-themes": "^0.2.0",
     "node-fetch": "^3.2.10",
+    "parse5-htmlparser2-tree-adapter": "^6.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.54.4"
+    "sass": "^1.54.4",
+    "theme-ui": "^0.14.7",
+    "tocbot": "^4.18.2"
   },
   "devDependencies": {
+    "@types/node": "^18.7.8",
+    "@types/react": "^18.0.17",
     "eslint": "8.22.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
   }
 }

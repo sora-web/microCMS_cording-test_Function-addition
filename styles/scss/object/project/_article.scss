@@ -6,6 +6,20 @@
 @use "../../utility/font" as font;
 @use "../../utility/vw" as vw;
 
+.p-article-toc {
+  width: calc(100% * 760 / 960);
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+  background-color: #ebf2fe;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  @include responsive.responsive(lg) {
+    margin-bottom: 40px;
+  }
+}
+
 .p-article {
   $block: &;
 

@@ -7,7 +7,7 @@
 
 .p-heading {
   $block: &;
-  background-color: #232e52;
+
   margin-left: auto;
   padding-top: 60px;
   padding-bottom: 102px;
@@ -47,7 +47,6 @@
     }
   }
   #{$block}__title {
-    color: #fff;
     @include font.Hiragino_W7;
     font-size: rem.rem(24px);
     letter-spacing: 0;
@@ -63,12 +62,10 @@
     color: #fff;
     background-color: #232e52 !important;
     border-radius: 6px 0 0 6px;
-    border: 1px solid #fff;
   }
   #{$block}__date {
     color: #232e52;
     background-color: #fff !important;
     border-radius: 0 6px 6px 0;
-    border: 1px solid #fff;
   }
 }

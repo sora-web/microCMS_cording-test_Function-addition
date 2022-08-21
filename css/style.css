@@ -81,7 +81,6 @@ video {
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent;
 }
 
 body {
@@ -196,13 +195,10 @@ html {
   box-sizing: border-box;
 }
 html body {
-  background-color: white;
-  color: #232e52;
   position: relative;
 }
 html body a {
   text-decoration: none;
-  color: #232e52;
   transition: 0.3s;
 }
 html body a:hover {
@@ -29322,12 +29318,12 @@ padding
 }
 
 .l-header {
-  padding-top: 20px;
+  padding-top: 10px;
   width: 100%;
 }
 @media screen and (min-width: 768px) {
   .l-header {
-    padding-top: 30px;
+    padding-top: 20px;
   }
 }
 .l-header__inner {
@@ -29606,20 +29602,22 @@ padding
   padding-bottom: 0;
 }
 
-.c-logo a {
-  padding: 10px;
-}
-.c-logo a img {
-  width: 54px;
+.c-logo {
+  width: 53px;
 }
 @media screen and (min-width: 768px) {
-  .c-logo a img {
+  .c-logo {
     width: 80px;
   }
 }
+.text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .p-heading {
-  background-color: #232e52;
   margin-left: auto;
   padding-top: 60px;
   padding-bottom: 102px;
@@ -29659,7 +29657,6 @@ padding
   }
 }
 .p-heading .p-heading__title {
-  color: #fff;
   font-family: "HiraginoSans-W7", sans-serif;
   font-size: 1.5rem;
   letter-spacing: 0;
@@ -29676,20 +29673,18 @@ padding
   color: #fff;
   background-color: #232e52 !important;
   border-radius: 6px 0 0 6px;
-  border: 1px solid #fff;
 }
 .p-heading .p-heading__date {
   color: #232e52;
   background-color: #fff !important;
   border-radius: 0 6px 6px 0;
-  border: 1px solid #fff;
 }
 
 .c-pagenation-list {
   display: flex;
   margin-right: -10px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) {
   .c-pagenation-list {
     margin-right: -20px;
   }
@@ -29706,7 +29701,7 @@ padding
   letter-spacing: 0em;
   line-height: 1;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) {
   .c-pagenation-list .c-pagenation-item a {
     padding: 15px 20px;
     margin-right: 20px;
@@ -29719,12 +29714,195 @@ padding
   background-color: #eaeaea;
 }
 
+.c-toc__header {
+  margin-bottom: 10px;
+  color: #232e52;
+  font-family: "HiraginoSans-W4", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+@media screen and (min-width: 992px) {
+  .c-toc__header {
+    font-size: 1.125rem;
+    letter-spacing: 0;
+    line-height: 2;
+  }
+}
+
+.toc-list-item {
+  list-style: none;
+}
+
+.toc-link {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-family: "HiraginoSans-W4", sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  line-height: 1.6;
+  position: relative;
+}
+@media screen and (min-width: 992px) {
+  .toc-link {
+    margin-bottom: 16px;
+    font-size: 1rem;
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+}
+.toc-link::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #e4e4f1;
+}
+@media screen and (min-width: 992px) {
+  .toc-link::before {
+    bottom: -8px;
+  }
+}
+
+:root {
+  --color-button: #324171;
+  --color-background: #fff;
+  --color-primary: #232e52;
+  --color-bgc: #232e52;
+  --color-header__item: #fff;
+  --color-cat: #232e52;
+}
+
+[data-theme=dark] {
+  --color-button: #32ed6a;
+  --color-background: #22212b;
+  --color-primary: #fff;
+  --color-bgc: #ebf2fe;
+  --color-header__item: #232e52;
+  --color-cat: #232e52;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+a {
+  color: var(--color-primary);
+}
+
+.p-header,
+.p-heading {
+  background-color: var(--color-bgc);
+}
+
+.c-blog-item__cat {
+  color: var(--color-cat);
+}
+
+.p-header__item a {
+  color: var(--color-header__item);
+}
+
+.c-logo__svg path {
+  fill: var(--color-header__item);
+}
+
+.p-heading__cat,
+.p-heading__date {
+  border: 1px solid;
+  border-color: var(--color-background);
+}
+
+.p-heading__title {
+  color: var(--color-background);
+}
+
+.p-switch__wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 992px) {
+  .p-switch__wrapper {
+    margin-bottom: 30px;
+  }
+}
+
+.c-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+@media screen and (min-width: 992px) {
+  .c-switch {
+    width: 51px;
+    height: 30px;
+  }
+}
+.c-switch__wrapper {
+  display: inline-block;
+}
+.c-switch__button {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 34px;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+@media screen and (min-width: 992px) {
+  .c-switch__button {
+    border-radius: 15px;
+  }
+}
+.c-switch__button:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.4s;
+}
+@media screen and (min-width: 992px) {
+  .c-switch__button:before {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+input:checked + .c-switch__button {
+  background-color: #33f321;
+}
+input:checked + .c-switch__button:before {
+  transform: translate(80%, -50%);
+}
+@media screen and (min-width: 992px) {
+  input:checked + .c-switch__button:before {
+    transform: translate(65%, -50%);
+  }
+}
+
+input:focus + .c-switch__button {
+  box-shadow: 0 0 1px #33f321;
+}
+
 .fixedClass {
   color: #ffffff;
 }
 
 .p-header {
-  background-color: #232e52;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 20px;
@@ -29778,7 +29956,6 @@ padding
   }
 }
 .p-header__inner .p-header-pc .p-header__nav .p-header__list .p-header__item a {
-  color: #fff;
   font-family: "Graphik", sans-serif;
   font-size: 0.625rem;
   letter-spacing: 0em;
@@ -29814,6 +29991,22 @@ padding
 
 .p-header--radius {
   border-radius: 10px;
+}
+
+.p-article-toc {
+  width: 79.1666666667%;
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+  background-color: #ebf2fe;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 992px) {
+  .p-article-toc {
+    margin-bottom: 40px;
+  }
 }
 
 .p-article .p-article__inner {
@@ -30033,6 +30226,9 @@ padding
   max-width: 960px;
   margin-right: auto;
   margin-left: auto;
+}
+.p-home--pagenation {
+  margin-bottom: 50px;
 }
 
 .p-category {
