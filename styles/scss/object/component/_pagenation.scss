@@ -7,15 +7,18 @@
 
 .c-pagenation-list {
   display: flex;
-  margin-right: -10px;
-  @include responsive.responsive(sm) {
-    margin-right: -20px;
-  }
+  justify-content: center;
   .c-pagenation-item {
+    margin-right: 10px;
+    @include responsive.responsive(sm) {
+      margin-right: 20px;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
     a {
       display: block;
       padding: 8px 10px;
-      margin-right: 10px;
       border-radius: 5px;
       background-color: #ebf2fe;
       color: #232e52;
@@ -25,7 +28,7 @@
       line-height: 1;
       @include responsive.responsive(sm) {
         padding: 15px 20px;
-        margin-right: 20px;
+
         font-size: rem.rem(12px);
         letter-spacing: 0em;
         line-height: 1;

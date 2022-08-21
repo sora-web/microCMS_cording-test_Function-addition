@@ -1,11 +1,3 @@
-// export default function Custom404() {
-//   return (
-//     <main className="main">
-//       <p>ページがありません。</p>
-//     </main>
-//   );
-// }
-
 import Link from "next/link";
 import { client } from "../libs/client";
 import React, { useRef, useState, useEffect } from "react";
@@ -29,21 +21,11 @@ export const getStaticProps = async () => {
       blog: data.contents,
       totalCount: data.totalCount,
       category: categoryData.contents,
-      // blogTutorials: blogTutorials.contents,
-      // blogWeeklyUpdates: blogWeeklyUpdates.contents,
-      // blogDesignTools: blogDesignTools.contents,
     },
   };
 };
 
-const Custom404 = ({
-  blog,
-  category,
-  totalCount,
-  // blogTutorials,
-  // blogWeeklyUpdates,
-  // blogDesignTools,
-}) => {
+const Custom404 = ({ blog, category, totalCount }) => {
   return (
     <>
       <MyHead title={"404"} />
