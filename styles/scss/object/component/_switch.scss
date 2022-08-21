@@ -121,13 +121,16 @@ a {
     }
   }
 }
+input {
+  display: none;
+}
 
 input:checked + .c-switch__button {
   background-color: #33f321;
   &:before {
     transform: translate(80%, -50%);
     @include responsive.responsive(lg) {
-      transform: translate(65%, -50%);
+      transform: translate(80%, -50%);
     }
   }
 }

@@ -182,7 +182,9 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 *,
@@ -29737,6 +29739,7 @@ padding
 .toc-link {
   display: inline-block;
   margin-bottom: 10px;
+  color: #232e52;
   font-family: "HiraginoSans-W4", sans-serif;
   font-size: 0.8125rem;
   letter-spacing: 0;
@@ -29882,6 +29885,10 @@ a {
   }
 }
 
+input {
+  display: none;
+}
+
 input:checked + .c-switch__button {
   background-color: #33f321;
 }
@@ -29890,7 +29897,7 @@ input:checked + .c-switch__button:before {
 }
 @media screen and (min-width: 992px) {
   input:checked + .c-switch__button:before {
-    transform: translate(65%, -50%);
+    transform: translate(80%, -50%);
   }
 }
 
