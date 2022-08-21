@@ -4,7 +4,7 @@ import { client } from "../../libs/client";
 import Footer from "../../components/footer";
 import Title from "../../components/title";
 import MyHead from "../../components/head";
-import Toc from "../../components/toc"; // 追加
+import Toc from "../../components/toc";
 import Switch from "../../components/switch";
 
 // 静的生成のためのパスを指定します
@@ -41,8 +41,6 @@ export const getStaticProps = async (context) => {
 export default function BlogId({ blog, category, BlogData }) {
   return (
     <>
-      {/* <TableOfContents toc={toc} /> */}
-      {/* <Toc /> */}
       <MyHead title={"Article_Page"} />
       <header className="l-header">
         <div className="l-header__inner l-header__inner--article">

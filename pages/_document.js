@@ -29,7 +29,7 @@ const themeInitializerScript = `(function() {
 function setInitialColorMode() {
   // 最初のpreferenceを確認して、darkかlightの文字列を返す関数
   function getInitialColorMode() {
-    //ストレージからthemeは取得する。
+    //ストレージからthemeを取得する。
     const persistedPreferenceMode = window.localStorage.getItem("theme");
     const hasPersistedPreference = typeof persistedPreferenceMode === "string";
 

@@ -7,7 +7,7 @@ import MyHead from "../components/head";
 import { Pagination } from "../components/Pagination";
 import Switch from "../components/switch";
 
-// データをテンプレートに受け渡す部分の処理を記述します
+// データをテンプレートに受け渡す部分の処理
 export const getStaticProps = async () => {
   const data = await client.get({
     endpoint: "blog",
@@ -17,95 +17,16 @@ export const getStaticProps = async () => {
   // カテゴリーコンテンツの取得
   const categoryData = await client.get({ endpoint: "categories" });
 
-  //記事数制御
-  // const blogTutorials = await client.get({
-  //   endpoint: "blog",
-  //   queries: {
-  //     filters: `category[equals]6xy9eo0cq`,
-  //     limit: 3,
-  //   },
-  // });
-
-  // const blogWeeklyUpdates = await client.get({
-  //   endpoint: "blog",
-  //   queries: {
-  //     filters: `category[equals]b5exev039d`,
-  //     limit: 3,
-  //   },
-  // });
-  // const blogDesignTools = await client.get({
-  //   endpoint: "blog",
-  //   queries: {
-  //     filters: `category[equals]yylq_txk-iu3`,
-  //     limit: 3,
-  //   },
-  // });
-
   return {
     props: {
       blog: data.contents,
       totalCount: data.totalCount,
       category: categoryData.contents,
-      // blogTutorials: blogTutorials.contents,
-      // blogWeeklyUpdates: blogWeeklyUpdates.contents,
-      // blogDesignTools: blogDesignTools.contents,
     },
   };
 };
 
-const Home = ({
-  blog,
-  category,
-  totalCount,
-  // blogTutorials,
-  // blogWeeklyUpdates,
-  // blogDesignTools,
-}) => {
-  {
-    {
-      blog.map(
-        (blog) => (
-          console.log(blog.title),
-          (
-            <li className="c-blog-item" key={blog.id}>
-              <p className="c-blog-item__title el" idName="el">
-                {blog.title}
-              </p>
-            </li>
-          )
-        )
-      );
-    }
-  }
-
-  // const [darkTheme, setDarkTheme] = useState(undefined);
-
-  // const handleToggle = (e) => {
-  //   setDarkTheme(e.target.checked);
-  // };
-
-  // useEffect(() => {
-  //   if (darkTheme !== undefined) {
-  //     if (darkTheme) {
-  //       document.documentElement.setAttribute("data-theme", "dark");
-  //       window.localStorage.setItem("theme", "dark");
-  //     } else {
-  //       document.documentElement.removeAttribute("data-theme");
-  //       window.localStorage.setItem("theme", "light");
-  //     }
-  //   }
-  // }, [darkTheme]);
-
-  // useEffect(() => {
-  //   const root = window.document.documentElement;
-  //   const initialColorValue = root.style.getPropertyValue(
-  //     "--initial-color-mode"
-  //   );
-  //   // Set initial darkmode to light
-  //   setDarkTheme(initialColorValue === "dark");
-
-  // }, []);
-
+const Home = ({ blog, category, totalCount }) => {
   return (
     <>
       <MyHead title={"Cording_Test"} />
