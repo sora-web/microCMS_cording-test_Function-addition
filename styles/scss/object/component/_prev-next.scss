@@ -1,0 +1,49 @@
+@use "../../utility/flex" as flex;
+@use "../../utility/responsive" as responsive;
+@use "../../utility/position" as position;
+@use "../../utility/align" as align;
+@use "../../utility/rem" as rem;
+@use "../../utility/font" as font;
+
+.p-prev-next {
+  &--article {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.c-prev-next {
+  $block: &;
+  width: 48%;
+  a {
+    display: flex;
+    justify-content: space-between;
+  }
+  #{$block}__img-area {
+    width: 36%;
+    height: auto;
+  }
+  #{$block}__text-area {
+    width: 60%;
+    @include font.Hiragino_W4;
+    font-size: rem.rem(10px);
+    letter-spacing: 0;
+    line-height: 1;
+
+    @include responsive.responsive(md) {
+      font-size: rem.rem(12px);
+      letter-spacing: 0;
+      line-height: 1;
+    }
+    #{$block}__text {
+      margin-bottom: 10px;
+    }
+    #{$block}__title {
+      line-height: 1.3;
+    }
+  }
+
+  &--next {
+    #{$block}__text-area {
+    }
+  }
+}

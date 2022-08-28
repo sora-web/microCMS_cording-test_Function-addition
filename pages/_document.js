@@ -23,14 +23,14 @@ class MyDocument extends Document {
 const themeInitializerScript = `(function() {
 	${setInitialColorMode.toString()}
 	setInitialColorMode();
-})()
-`;
+})()`;
 
 function setInitialColorMode() {
   // 最初のpreferenceを確認して、darkかlightの文字列を返す関数
   function getInitialColorMode() {
     //ストレージからthemeを取得する。
     const persistedPreferenceMode = window.localStorage.getItem("theme");
+
     const hasPersistedPreference = typeof persistedPreferenceMode === "string";
 
     if (hasPersistedPreference) {
@@ -45,10 +45,25 @@ function setInitialColorMode() {
       return preference.matches ? "dark" : "light";
     }
 
+    //
+    //画面遷移ダークモード保持できるかな？
+    //
+    // ローカルストレージからデータを取得して前回のダークモードを反映する
+    const darkModeParam = localStorage.getItem("theme");
+    console.log(darkModeParam);
+    if (darkModeParam == "light") {
+      // darkModeButton.dataset.mode === "light-mode";
+      document.documentElement.removeAttribute("data-theme");
+    } else if (darkModeParam == "dark") {
+      // darkModeButton.dataset.mode === "dark-mode";
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+
     return "light";
   }
 
   const currentColorMode = getInitialColorMode();
+
   const element = document.documentElement;
 
   element.style.setProperty("--initial-color-mode", currentColorMode);

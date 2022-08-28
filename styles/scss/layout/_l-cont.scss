@@ -48,4 +48,19 @@
       width: calc(100% * 960 / 1440);
     }
   }
+  &--prev-next {
+    padding-top: 80px;
+    padding-bottom: 20px;
+    @include responsive.responsive(md) {
+      padding-top: 160px;
+      padding-bottom: 60px;
+    }
+  }
+  &__inner {
+    margin: auto;
+    width: calc(100% * 310 / 390);
+    @include responsive.responsive(md) {
+      width: calc(100% * 960 / 1440);
+    }
+  }
 }

@@ -52,9 +52,7 @@ const Home = ({ blog, category, totalCount }) => {
                           <p className="c-blog-item__date">{blog.date}</p>
                         </div>
                         <div className="c-blog-item__body">
-                          <p className="c-blog-item__title el" idName="el">
-                            {blog.title}
-                          </p>
+                          <p className="c-blog-item__title el">{blog.title}</p>
 
                           <div
                             className="c-blog-item__text"

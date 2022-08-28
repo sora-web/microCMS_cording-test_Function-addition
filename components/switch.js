@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 const Switch = () => {
-  const [darkTheme, setDarkTheme] = useState(undefined);
+  // const [darkTheme, setDarkTheme] = useState(undefined);
+  const [darkTheme, setDarkTheme] = useState("");
 
   const handleToggle = (e) => {
     setDarkTheme(e.target.checked);
@@ -10,11 +11,11 @@ const Switch = () => {
   useEffect(() => {
     if (darkTheme !== undefined) {
       if (darkTheme) {
-        document.documentElement.setAttribute("data-theme", "dark");
         window.localStorage.setItem("theme", "dark");
+        document.documentElement.setAttribute("data-theme", "dark");
       } else {
-        document.documentElement.removeAttribute("data-theme");
         window.localStorage.setItem("theme", "light");
+        document.documentElement.removeAttribute("data-theme");
       }
     }
   }, [darkTheme]);
@@ -25,7 +26,7 @@ const Switch = () => {
       "--initial-color-mode"
     );
     // Set initial darkmode to light
-    setDarkTheme(initialColorValue === "dark");
+    setDarkTheme(initialColorValue === "ligth");
   }, []);
 
   return (

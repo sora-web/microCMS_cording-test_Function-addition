@@ -40,9 +40,6 @@ const Category = ({ blog, category, id }) => {
   const router = useRouter();
   const routername = router.query.id;
 
-  // // パラメータを受け取る
-  console.log(routername);
-
   return (
     <>
       <MyHead title={"Category_Page"} />

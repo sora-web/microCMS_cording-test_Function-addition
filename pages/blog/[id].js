@@ -24,6 +24,7 @@ export const getStaticProps = async (context) => {
     endpoint: "blog",
     queries: { offset: 0, limit: 3 },
   });
+
   const id = context.params.id;
   const data = await client.get({
     endpoint: "blog",
@@ -33,16 +34,36 @@ export const getStaticProps = async (context) => {
   // カテゴリーコンテンツの取得
   const categoryData = await client.get({ endpoint: "categories" });
 
+  // 全ページを取得
+  const BlogDataAll = await client.get({
+    endpoint: "blog",
+    queries: { offset: 0, limit: 40 },
+  });
+  const allPosts = BlogDataAll.contents;
+  const currentPost = allPosts.find((data) => data.id === id);
+  const postNum = allPosts.indexOf(currentPost);
+  const prevPost =
+    postNum === allPosts.length - 1 ? null : allPosts[postNum + 1];
+  const nextPost = postNum === 0 ? null : allPosts[postNum - 1];
+
   return {
     props: {
-      BlogData: BlogData.contents,
       blog: data,
       category: categoryData.contents,
+      BlogData: BlogData.contents,
+      prevPost,
+      nextPost,
     },
   };
 };
 
-export default function BlogId({ blog, category, BlogData }) {
+export default function BlogId({
+  blog,
+  category,
+  BlogData,
+  prevPost,
+  nextPost,
+}) {
   return (
     <>
       <MyHead title={"Article_Page"} />
@@ -126,6 +147,42 @@ export default function BlogId({ blog, category, BlogData }) {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+        <div className="l-cont-page l-cont-page--prev-next">
+          <div className="l-cont-page__inner ">
+            <div className="p-prev-next p-prev-next--article">
+              <div className="c-prev-next c-prev-next--next">
+                {nextPost && (
+                  <Link href={`/blog/${nextPost.id}`}>
+                    <a>
+                      <div className="c-prev-next__img-area">
+                        <img src={blog.thumbnail && `${blog.thumbnail.url}`} />
+                      </div>
+                      <div className="c-prev-next__text-area">
+                        <p className="c-prev-next__text">次の記事</p>
+                        <p className="c-prev-next__title"> {nextPost.title}</p>
+                      </div>
+                    </a>
+                  </Link>
+                )}
+              </div>
+              <div className="c-prev-next c-prev-next--prev">
+                {prevPost && (
+                  <Link href={`/blog/${prevPost.id}`}>
+                    <a>
+                      <div className="c-prev-next__text-area">
+                        <p className="c-prev-next__text">前の記事</p>
+                        <p className="c-prev-next__title"> {prevPost.title}</p>
+                      </div>
+                      <div className="c-prev-next__img-area">
+                        <img src={blog.thumbnail && `${blog.thumbnail.url}`} />
+                      </div>
+                    </a>
+                  </Link>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </main>

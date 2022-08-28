@@ -180,6 +180,9 @@
     }
   }
   &--article {
-    padding-bottom: 0;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    @include responsive.responsive(sm) {
+    }
   }
 }
