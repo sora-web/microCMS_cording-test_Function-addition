@@ -171,7 +171,11 @@ export default function BlogId({
                   <Link href={`/blog/${nextPost.id}`}>
                     <a>
                       <div className="c-prev-next__img-area">
-                        <img src={blog.thumbnail && `${blog.thumbnail.url}`} />
+                        <img
+                          src={
+                            nextPost.thumbnail && `${nextPost.thumbnail.url}`
+                          }
+                        />
                       </div>
                       <div className="c-prev-next__text-area">
                         <p className="c-prev-next__text">次の記事</p>
@@ -190,7 +194,11 @@ export default function BlogId({
                         <p className="c-prev-next__title"> {prevPost.title}</p>
                       </div>
                       <div className="c-prev-next__img-area">
-                        <img src={blog.thumbnail && `${blog.thumbnail.url}`} />
+                        <img
+                          src={
+                            prevPost.thumbnail && `${prevPost.thumbnail.url}`
+                          }
+                        />
                       </div>
                     </a>
                   </Link>
