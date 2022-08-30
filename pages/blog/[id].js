@@ -108,83 +108,60 @@ export default function BlogId({
           </div>
         </div>
 
-        <div className="l-cont-page l-cont-page--latest">
-          <div className="l-cont-page__inner ">
-            <div className="c-blog-heading">
-              <Title title={"最近の記事"} />
-            </div>
-            <ul className="c-blog c-blog--article">
-              {BlogData.map((blog) => (
-                <li className="c-blog-item" key={blog.id}>
-                  <Link href={`/blog/${blog.id}`}>
-                    <a>
-                      <div className="c-blog-item__text-area">
-                        <div className="c-blog-item__head">
-                          <p className="c-blog-item__cat">
-                            {blog.category && `${blog.category.name}`}
-                          </p>
-                          <p className="c-blog-item__date">{blog.date}</p>
-                        </div>
-                        <div className="c-blog-item__body">
-                          <p className="c-blog-item__title">{blog.title}</p>
+        {(() => {
+          if (blog.connections.length) {
+            return (
+              <div className="l-cont-page l-cont-page--latest">
+                <div className="l-cont-page__inner l-cont-page--latest__inner">
+                  <div className="c-blog-heading">
+                    <Title title={"関連記事"} />
+                  </div>
+                  <ul className="c-blog c-blog--article">
+                    {blog.connections.map((connection) => (
+                      <li className="c-blog-item" key={connection.id}>
+                        <Link href={`/blog/${connection.id}`}>
+                          <a>
+                            <div className="c-blog-item__text-area">
+                              <div className="c-blog-item__head">
+                                {/* <p className="c-blog-item__cat">
+                          {connection.category && `${connection.category.name}`}
+                        </p> */}
+                                <p className="c-blog-item__date">
+                                  {connection.date}
+                                </p>
+                              </div>
+                              <div className="c-blog-item__body">
+                                <p className="c-blog-item__title">
+                                  {connection.title}
+                                </p>
 
-                          <div
-                            className="c-blog-item__text"
-                            dangerouslySetInnerHTML={{
-                              __html: `${blog.desc}`,
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div className="c-blog-item__img-area">
-                        <img
-                          src={blog.thumbnail && `${blog.thumbnail.url}`}
-                          className="c-blog-item__img"
-                        />
-                      </div>
-                    </a>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="l-cont-page l-cont-page--prev-next">
-          <div className="l-cont-page__inner ">
-            <div className="p-prev-next p-prev-next--article">
-              <div className="c-prev-next c-prev-next--next">
-                {nextPost && (
-                  <Link href={`/blog/${nextPost.id}`}>
-                    <a>
-                      <div className="c-prev-next__img-area">
-                        <img src={blog.thumbnail && `${blog.thumbnail.url}`} />
-                      </div>
-                      <div className="c-prev-next__text-area">
-                        <p className="c-prev-next__text">次の記事</p>
-                        <p className="c-prev-next__title"> {nextPost.title}</p>
-                      </div>
-                    </a>
-                  </Link>
-                )}
+                                <div
+                                  className="c-blog-item__text"
+                                  dangerouslySetInnerHTML={{
+                                    __html: `${connection.desc}`,
+                                  }}
+                                />
+                              </div>
+                            </div>
+                            <div className="c-blog-item__img-area">
+                              <img
+                                src={
+                                  connection.thumbnail &&
+                                  `${connection.thumbnail.url}`
+                                }
+                                className="c-blog-item__img"
+                              />
+                            </div>
+                          </a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div className="c-prev-next c-prev-next--prev">
-                {prevPost && (
-                  <Link href={`/blog/${prevPost.id}`}>
-                    <a>
-                      <div className="c-prev-next__text-area">
-                        <p className="c-prev-next__text">前の記事</p>
-                        <p className="c-prev-next__title"> {prevPost.title}</p>
-                      </div>
-                      <div className="c-prev-next__img-area">
-                        <img src={blog.thumbnail && `${blog.thumbnail.url}`} />
-                      </div>
-                    </a>
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
+            );
+          }
+        })()}
       </main>
       <Footer />
     </>
