@@ -65,10 +65,10 @@
     }
   }
   &--prev-next {
-    padding-top: 80px;
+    // padding-top: 80px;
     padding-bottom: 20px;
     @include responsive.responsive(md) {
-      padding-top: 160px;
+      // padding-top: 160px;
       padding-bottom: 60px;
     }
   }

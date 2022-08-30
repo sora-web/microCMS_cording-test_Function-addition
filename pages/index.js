@@ -30,6 +30,19 @@ export const getStaticProps = async () => {
 const Home = ({ blog, category, totalCount }) => {
   return (
     <>
+      {/* <div>
+        <ul className="c-blog c-blog--article">
+          {blog.map((blog) => ({
+            if() {
+              return (
+                <li className="c-blog-item" key={blog.id}>
+                  <p className="c-blog-item__title el">{blog.title}</p>
+                </li>
+              );
+            },
+          }))}
+        </ul>
+      </div> */}
       <MyHead title={"Cording_Test"} />
       <HeaderRadius list={category} />
 
