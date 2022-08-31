@@ -48,6 +48,28 @@ export const getStaticProps = async (context) => {
 };
 
 const BlogPageId = ({ blog, category, totalCount }) => {
+  {
+    blog.map((blog) =>
+      (() => {
+        const title = blog.title;
+        const titleLength = 20;
+        if (title.length > titleLength) {
+          return (blog.title = title.substring(0, titleLength) + "...");
+        }
+      })()
+    );
+  }
+  {
+    blog.map((blog) =>
+      (() => {
+        const text = blog.text;
+        const textLength = 100;
+        if (text.length > textLength) {
+          return (blog.text = text.substring(0, textLength) + "...");
+        }
+      })()
+    );
+  }
   return (
     <>
       <MyHead title={"Cording_Test"} />
@@ -73,7 +95,7 @@ const BlogPageId = ({ blog, category, totalCount }) => {
                           <div
                             className="c-blog-item__text"
                             dangerouslySetInnerHTML={{
-                              __html: `${blog.desc}`,
+                              __html: `${blog.text}`,
                             }}
                           />
                         </div>
