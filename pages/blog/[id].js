@@ -166,44 +166,64 @@ export default function BlogId({
         <div className="l-cont-page l-cont-page--prev-next">
           <div className="l-cont-page__inner ">
             <div className="p-prev-next p-prev-next--article">
-              <div className="c-prev-next c-prev-next--next">
-                {nextPost && (
-                  <Link href={`/blog/${nextPost.id}`}>
-                    <a>
-                      <div className="c-prev-next__img-area">
-                        <img
-                          src={
-                            nextPost.thumbnail && `${nextPost.thumbnail.url}`
-                          }
-                        />
-                      </div>
-                      <div className="c-prev-next__text-area">
-                        <p className="c-prev-next__text">次の記事</p>
-                        <p className="c-prev-next__title"> {nextPost.title}</p>
-                      </div>
-                    </a>
-                  </Link>
-                )}
-              </div>
-              <div className="c-prev-next c-prev-next--prev">
-                {prevPost && (
-                  <Link href={`/blog/${prevPost.id}`}>
-                    <a>
-                      <div className="c-prev-next__text-area">
-                        <p className="c-prev-next__text">前の記事</p>
-                        <p className="c-prev-next__title"> {prevPost.title}</p>
-                      </div>
-                      <div className="c-prev-next__img-area">
-                        <img
-                          src={
-                            prevPost.thumbnail && `${prevPost.thumbnail.url}`
-                          }
-                        />
-                      </div>
-                    </a>
-                  </Link>
-                )}
-              </div>
+              {(() => {
+                if (prevPost) {
+                  return (
+                    <div className="c-prev-next c-prev-next--prev">
+                      {prevPost && (
+                        <Link href={`/blog/${prevPost.id}`}>
+                          <a>
+                            <div className="c-prev-next__img-area">
+                              <img
+                                src={
+                                  prevPost.thumbnail &&
+                                  `${prevPost.thumbnail.url}`
+                                }
+                              />
+                            </div>
+                            <div className="c-prev-next__text-area">
+                              <p className="c-prev-next__text">前の記事</p>
+                              <p className="c-prev-next__title">
+                                {" "}
+                                {prevPost.title}
+                              </p>
+                            </div>
+                          </a>
+                        </Link>
+                      )}
+                    </div>
+                  );
+                }
+              })()}
+              {(() => {
+                if (nextPost) {
+                  return (
+                    <div className="c-prev-next c-prev-next--next">
+                      {nextPost && (
+                        <Link href={`/blog/${nextPost.id}`}>
+                          <a>
+                            <div className="c-prev-next__text-area">
+                              <p className="c-prev-next__text">次の記事</p>
+                              <p className="c-prev-next__title">
+                                {" "}
+                                {nextPost.title}
+                              </p>
+                            </div>
+                            <div className="c-prev-next__img-area">
+                              <img
+                                src={
+                                  nextPost.thumbnail &&
+                                  `${nextPost.thumbnail.url}`
+                                }
+                              />
+                            </div>
+                          </a>
+                        </Link>
+                      )}
+                    </div>
+                  );
+                }
+              })()}
             </div>
           </div>
         </div>
